@@ -1,0 +1,59 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "M1 Finance",
+  "url": "https://m1.com/",
+  "description": "M1 Finance is an automated investing platform offering fractional share portfolio management, smart money movement, margin borrowing, and integrated banking and credit features. The platform combines self-directed and automated investing through its Pies system, commission-free trading, a portfolio line of credit (M1 Borrow), high-yield cash accounts (M1 Earn), and a rewards credit card.",
+  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "sameAs": [
+    "https://github.com/m1finance",
+    "https://www.linkedin.com/company/m1-finance",
+    "https://x.com/m1finance"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "customer support",
+    "url": "https://help.m1.com/"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "M1 Finance Products",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "M1 Invest",
+        "description": "Automated fractional share portfolio management using the Pies system, allowing users to set target allocations across stocks and ETFs with dynamic rebalancing, auto-invest, and dividend reinvestment—all commission-free.",
+        "url": "https://m1.com/invest/"
+      },
+      {
+        "@type": "Offer",
+        "name": "M1 Borrow",
+        "description": "Portfolio line of credit (margin loans) allowing users to borrow up to 50% of their eligible brokerage portfolio value at a competitive variable rate that tracks the Federal Funds Rate.",
+        "url": "https://m1.com/borrow/"
+      },
+      {
+        "@type": "Offer",
+        "name": "M1 Earn",
+        "description": "High-yield cash accounts with 3.10% APY and FDIC insurance coverage up to $4.75 million aggregate through program banks.",
+        "url": "https://m1.com/earn/"
+      }
+    ]
+  },
+  "subjectOf": {
+    "@type": "Blog",
+    "name": "M1 Finance Blog",
+    "url": "https://m1.com/blog/"
+  },
+  "keywords": [
+    "Investing",
+    "Fintech",
+    "Fractional Shares",
+    "Portfolio Management",
+    "Robo-Advisor",
+    "Margin Loans",
+    "Banking",
+    "Automated Investing",
+    "Finance Super App",
+    "Wealth Management"
+  ]
+}
