@@ -1,0 +1,47 @@
+name: M1 Finance Plans and Pricing
+description: Pricing and plan information for M1 Finance, an automated investing platform offering fractional share portfolio management, smart money movement, margin borrowing, and integrated banking features.
+url: https://m1.com/
+created: 2026-06-13
+modified: 2026-06-13
+
+plans:
+
+  - name: Standard
+    description: Free access to M1 investing, borrowing, and earning features with a monthly platform fee for smaller balances.
+    url: https://m1.com/
+    free: false
+    details:
+      - Monthly platform fee of $3 for brokerage accounts with less than $10,000 in total M1 assets
+      - Fee is automatically waived if total M1 assets are $10,000 or more
+      - Fee is also waived with an active M1 Personal Loan
+      - $0 commissions on stock and ETF trades
+      - 1% fee on cryptocurrency transactions (assessed by Bakkt)
+      - Margin loan interest rate of 5.65% (as of February 1, 2026; tracks Federal Funds Rate)
+      - High-yield cash accounts at 3.10% APY (FDIC insured up to $4.75M aggregate)
+      - Commission-free trading for self-directed accounts
+      - Access to M1 Pies, auto-invest, dynamic rebalancing, and fractional shares
+
+fees:
+  - type: Platform Fee
+    amount: $3/month
+    waiver: Waived for accounts with $10,000+ in total M1 assets or an active M1 Personal Loan
+  - type: Trading Commission
+    amount: $0
+    notes: Self-directed stock and ETF trades
+  - type: Crypto Transaction Fee
+    amount: 1%
+    notes: Assessed by Bakkt on cryptocurrency transactions
+  - type: Margin Loan Interest
+    rate: 5.65%
+    notes: Variable rate tracking the Federal Funds Rate; as of February 1, 2026
+  - type: High-Yield Cash APY
+    rate: 3.10%
+    notes: FDIC insured up to $4.75M aggregate
+
+minimums:
+  - type: Margin Loan Eligibility
+    amount: $2,000 invested
+    notes: Required minimum balance to access M1 Margin Loans; not available for retirement or custodial accounts
+  - type: Borrow Capacity
+    amount: Up to 50% of portfolio value
+    notes: Maximum borrowing against eligible securities

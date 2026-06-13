@@ -1,0 +1,43 @@
+name: M1 Finance Rate Limits
+description: Rate limiting and operational constraints for the M1 Finance platform, covering trading windows, transfer limits, and borrowing thresholds.
+url: https://m1.com/
+created: 2026-06-13
+modified: 2026-06-13
+
+notes: >
+  M1 Finance does not publish a public developer API with documented API rate limits.
+  The platform operates as a consumer-facing fintech super app using an internal GraphQL
+  API gateway. The constraints listed here reflect operational limits applied to end users
+  within the platform's investing, borrowing, and banking features.
+
+operational_limits:
+
+  trading:
+    - type: Trade Windows
+      description: Trades are executed during scheduled trading windows rather than in real time, limiting intraday trading activity.
+      notes: Designed for long-term, automated investors; not intended for active or day trading.
+
+  borrowing:
+    - type: Margin Loan Maximum
+      limit: 50% of eligible portfolio value
+      description: Users may borrow up to 50% of the value of eligible securities in their brokerage account.
+    - type: Margin Loan Minimum Account Balance
+      limit: $2,000
+      description: Accounts must have at least $2,000 invested to be eligible for M1 Margin Loans.
+    - type: Eligible Account Types
+      description: Margin loans are available on Individual, Joint, and Trust Brokerage Accounts only. Not available for retirement or custodial accounts.
+
+  banking:
+    - type: FDIC Insurance Limit
+      limit: $4,750,000 aggregate
+      description: High-yield cash accounts are FDIC insured up to $4.75 million aggregate through program banks.
+
+  crypto:
+    - type: Crypto Transaction Fee
+      fee: 1%
+      description: A 1% transaction fee is assessed by Bakkt on all cryptocurrency transactions.
+
+platform_fee:
+  - type: Monthly Fee Waiver Threshold
+    threshold: $10,000 total M1 assets
+    description: The $3/month platform fee is automatically waived when total M1 assets reach or exceed $10,000.

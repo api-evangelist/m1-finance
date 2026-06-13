@@ -1,0 +1,138 @@
+aid: m1-finance
+name: M1 Finance
+description: >
+  M1 Finance is an automated investing platform offering fractional share portfolio management,
+  smart money movement, margin borrowing, and integrated banking and credit features. The platform
+  combines self-directed and automated investing through its Pies system, commission-free trading,
+  a portfolio line of credit (M1 Borrow), high-yield cash accounts (M1 Earn), and a rewards
+  credit card. M1 uses a GraphQL API gateway internally across 17+ microservices built on Scala
+  and TypeScript to power its Finance Super App experience.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/apis.yml
+created: 2026-06-13
+modified: 2026-06-13
+specificationVersion: '0.19'
+
+tags:
+  - Investing
+  - Fintech
+  - Fractional Shares
+  - Portfolio Management
+  - Robo-Advisor
+  - Margin Loans
+  - Banking
+  - Automated Investing
+  - Finance Super App
+  - Wealth Management
+
+apis:
+
+  - aid: m1-finance:m1-invest
+    name: M1 Invest
+    description: >
+      M1 Invest provides automated fractional share portfolio management using the Pies
+      system, allowing users to set target allocations across stocks and ETFs with dynamic
+      rebalancing, auto-invest, and dividend reinvestment—all commission-free.
+    humanURL: https://m1.com/invest/
+    baseURL: https://m1.com/
+    tags:
+      - Investing
+      - Fractional Shares
+      - Portfolio Management
+      - Automated Investing
+      - Rebalancing
+    properties:
+      - type: Documentation
+        url: https://help.m1.com/en/articles/9332042-getting-started-with-m1-invest-a-quick-guide
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/plans/m1-finance-plans-pricing.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/rate-limits/m1-finance-rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/finops/m1-finance-finops.yml
+
+  - aid: m1-finance:m1-borrow
+    name: M1 Borrow
+    description: >
+      M1 Borrow provides a portfolio line of credit (margin loans) allowing users to borrow
+      up to 50% of their eligible brokerage portfolio value at a competitive variable rate
+      that tracks the Federal Funds Rate. Available for individual, joint, and trust accounts
+      with a minimum $2,000 balance.
+    humanURL: https://m1.com/borrow/
+    baseURL: https://m1.com/
+    tags:
+      - Margin Loans
+      - Borrowing
+      - Portfolio Line of Credit
+      - Credit
+    properties:
+      - type: Documentation
+        url: https://help.m1.com/hc/en-us/sections/360000272627-M1-Borrow
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/plans/m1-finance-plans-pricing.yml
+      - type: RateLimits
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/rate-limits/m1-finance-rate-limits.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/finops/m1-finance-finops.yml
+
+  - aid: m1-finance:m1-earn
+    name: M1 Earn
+    description: >
+      M1 Earn offers high-yield cash accounts for individuals and joint account holders
+      with 3.10% APY and FDIC insurance coverage up to $4.75 million aggregate through
+      program banks, providing a secure, high-return place to hold cash on the platform.
+    humanURL: https://m1.com/earn/
+    baseURL: https://m1.com/
+    tags:
+      - Banking
+      - High-Yield Savings
+      - Cash Management
+      - FDIC
+    properties:
+      - type: Documentation
+        url: https://help.m1.com/
+      - type: Plans
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/plans/m1-finance-plans-pricing.yml
+      - type: FinOps
+        url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/finops/m1-finance-finops.yml
+
+common:
+
+  - type: Website
+    url: https://m1.com/
+
+  - type: Documentation
+    url: https://help.m1.com/
+
+  - type: GitHubOrg
+    url: https://github.com/m1finance
+
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/m1-finance
+
+  - type: Blog
+    url: https://m1.com/blog/
+
+  - type: Pricing
+    url: https://m1.com/
+
+  - type: StatusPage
+    url: https://status.m1.com/
+
+  - type: X
+    url: https://x.com/m1finance
+
+  - type: Plans
+    url: plans/m1-finance-plans-pricing.yml
+
+  - type: RateLimits
+    url: rate-limits/m1-finance-rate-limits.yml
+
+  - type: FinOps
+    url: finops/m1-finance-finops.yml
+
+maintainers:
+
+  - FN: Kin Lane
+    email: kin@apievangelist.com
