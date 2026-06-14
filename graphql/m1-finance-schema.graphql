@@ -1,0 +1,355 @@
+# M1 Finance GraphQL Data Model Schema
+#
+# M1 Finance uses an internal GraphQL API gateway across 17+ microservices.
+# This schema documents the data model derived from M1's publicly described
+# product features (Invest, Borrow, Earn) and their Pies/Slices portfolio system.
+# M1 does not expose a public or partner-facing GraphQL API.
+#
+# Sources: M1 product documentation, help center, and publicly described architecture.
+
+scalar Date
+scalar DateTime
+scalar Decimal
+
+# ─── Enums ────────────────────────────────────────────────────────────────────
+
+enum AccountType {
+  INDIVIDUAL
+  JOINT
+  CUSTODIAL
+  TRADITIONAL_IRA
+  ROTH_IRA
+  SEP_IRA
+  TRUST
+}
+
+enum AccountStatus {
+  ACTIVE
+  PENDING
+  SUSPENDED
+  CLOSED
+}
+
+enum OrderStatus {
+  PENDING
+  OPEN
+  FILLED
+  PARTIALLY_FILLED
+  CANCELLED
+  REJECTED
+}
+
+enum OrderType {
+  BUY
+  SELL
+  REBALANCE
+  AUTO_INVEST
+  DIVIDEND_REINVESTMENT
+}
+
+enum TransactionType {
+  DEPOSIT
+  WITHDRAWAL
+  DIVIDEND
+  INTEREST
+  TRADE_BUY
+  TRADE_SELL
+  MARGIN_INTEREST
+  FEE
+  TRANSFER_IN
+  TRANSFER_OUT
+}
+
+enum TransferDirection {
+  INBOUND
+  OUTBOUND
+}
+
+enum TransferStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum SecurityType {
+  STOCK
+  ETF
+  FUND
+}
+
+enum BorrowStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+}
+
+enum PerformancePeriod {
+  ONE_DAY
+  ONE_WEEK
+  ONE_MONTH
+  THREE_MONTHS
+  SIX_MONTHS
+  ONE_YEAR
+  THREE_YEARS
+  FIVE_YEARS
+  ALL_TIME
+}
+
+# ─── Account ──────────────────────────────────────────────────────────────────
+
+type Account {
+  id: ID!
+  type: AccountType!
+  status: AccountStatus!
+  displayName: String
+  cashBalance: CashBalance!
+  portfolio: Portfolio
+  borrowBalance: BorrowBalance
+  earnBalance: EarnBalance
+  orders(status: OrderStatus, limit: Int, offset: Int): [Order!]!
+  transactions(
+    startDate: Date
+    endDate: Date
+    type: TransactionType
+    limit: Int
+    offset: Int
+  ): [Transaction!]!
+  transfers(direction: TransferDirection, limit: Int, offset: Int): [Transfer!]!
+  performance(period: PerformancePeriod!): Performance!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+# ─── Portfolio / Pies / Slices ─────────────────────────────────────────────────
+
+type Portfolio {
+  id: ID!
+  accountId: ID!
+  totalValue: Decimal!
+  totalCost: Decimal!
+  totalGainLoss: Decimal!
+  totalGainLossPercent: Decimal!
+  pie: Pie!
+  positions: [Position!]!
+  performance(period: PerformancePeriod!): Performance!
+  updatedAt: DateTime!
+}
+
+type Pie {
+  id: ID!
+  name: String!
+  description: String
+  slices: [Slice!]!
+  totalAllocationPercent: Decimal!
+  isPublic: Boolean!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type Slice {
+  id: ID!
+  pieId: ID!
+  targetPercent: Decimal!
+  currentPercent: Decimal!
+  security: Security
+  childPie: Pie
+  value: Decimal!
+  cost: Decimal!
+  gainLoss: Decimal!
+  gainLossPercent: Decimal!
+}
+
+# ─── Security / Position ───────────────────────────────────────────────────────
+
+type Security {
+  id: ID!
+  symbol: String!
+  name: String!
+  type: SecurityType!
+  exchange: String
+  isFractionalSharesEligible: Boolean!
+  currentPrice: Decimal!
+  priceChange: Decimal!
+  priceChangePercent: Decimal!
+  marketCap: Decimal
+  sector: String
+  industry: String
+  description: String
+  updatedAt: DateTime!
+}
+
+type Position {
+  id: ID!
+  accountId: ID!
+  security: Security!
+  shares: Decimal!
+  averageCost: Decimal!
+  totalCost: Decimal!
+  currentValue: Decimal!
+  gainLoss: Decimal!
+  gainLossPercent: Decimal!
+  dividends: [Dividend!]!
+  updatedAt: DateTime!
+}
+
+# ─── Order ────────────────────────────────────────────────────────────────────
+
+type Order {
+  id: ID!
+  accountId: ID!
+  type: OrderType!
+  status: OrderStatus!
+  security: Security
+  shares: Decimal
+  amount: Decimal
+  filledShares: Decimal
+  filledAmount: Decimal
+  filledPrice: Decimal
+  submittedAt: DateTime!
+  filledAt: DateTime
+  cancelledAt: DateTime
+}
+
+# ─── Transaction ──────────────────────────────────────────────────────────────
+
+type Transaction {
+  id: ID!
+  accountId: ID!
+  type: TransactionType!
+  amount: Decimal!
+  description: String!
+  security: Security
+  shares: Decimal
+  price: Decimal
+  settledAt: DateTime
+  createdAt: DateTime!
+}
+
+# ─── Dividend ─────────────────────────────────────────────────────────────────
+
+type Dividend {
+  id: ID!
+  accountId: ID!
+  security: Security!
+  amount: Decimal!
+  shares: Decimal!
+  payDate: Date!
+  exDate: Date!
+  reinvested: Boolean!
+  reinvestedShares: Decimal
+  createdAt: DateTime!
+}
+
+# ─── Cash Balance ─────────────────────────────────────────────────────────────
+
+type CashBalance {
+  accountId: ID!
+  available: Decimal!
+  pending: Decimal!
+  total: Decimal!
+  autoInvestThreshold: Decimal
+  updatedAt: DateTime!
+}
+
+# ─── Borrow Balance ───────────────────────────────────────────────────────────
+
+type BorrowBalance {
+  accountId: ID!
+  status: BorrowStatus!
+  outstanding: Decimal!
+  available: Decimal!
+  limit: Decimal!
+  interestRate: Decimal!
+  interestAccrued: Decimal!
+  portfolioValue: Decimal!
+  maintenanceMargin: Decimal!
+  updatedAt: DateTime!
+}
+
+# ─── Earn (High-Yield Cash) Balance ───────────────────────────────────────────
+
+type EarnBalance {
+  accountId: ID!
+  balance: Decimal!
+  apy: Decimal!
+  interestEarned: Decimal!
+  fdicCoverageLimit: Decimal!
+  updatedAt: DateTime!
+}
+
+# ─── Transfer ─────────────────────────────────────────────────────────────────
+
+type Transfer {
+  id: ID!
+  accountId: ID!
+  direction: TransferDirection!
+  status: TransferStatus!
+  amount: Decimal!
+  bankAccountLast4: String
+  initiatedAt: DateTime!
+  completedAt: DateTime
+  estimatedCompletionDate: Date
+}
+
+# ─── Performance / History ────────────────────────────────────────────────────
+
+type Performance {
+  period: PerformancePeriod!
+  startValue: Decimal!
+  endValue: Decimal!
+  netReturn: Decimal!
+  netReturnPercent: Decimal!
+  dividendsReceived: Decimal!
+  depositsWithdrawals: Decimal!
+  history: [HistoryPoint!]!
+}
+
+type HistoryPoint {
+  date: Date!
+  value: Decimal!
+  return: Decimal!
+  returnPercent: Decimal!
+}
+
+# ─── Query ────────────────────────────────────────────────────────────────────
+
+type Query {
+  account(id: ID!): Account
+  accounts: [Account!]!
+  portfolio(accountId: ID!): Portfolio
+  pie(id: ID!): Pie
+  security(symbol: String!): Security
+  securities(symbols: [String!]): [Security!]!
+  searchSecurities(query: String!, limit: Int): [Security!]!
+  position(accountId: ID!, securityId: ID!): Position
+  positions(accountId: ID!): [Position!]!
+  order(id: ID!): Order
+  orders(accountId: ID!, status: OrderStatus, limit: Int, offset: Int): [Order!]!
+  transaction(id: ID!): Transaction
+  transactions(accountId: ID!, startDate: Date, endDate: Date, type: TransactionType, limit: Int, offset: Int): [Transaction!]!
+  dividends(accountId: ID!, startDate: Date, endDate: Date, limit: Int, offset: Int): [Dividend!]!
+  transfer(id: ID!): Transfer
+  transfers(accountId: ID!, direction: TransferDirection, limit: Int, offset: Int): [Transfer!]!
+  performance(accountId: ID!, period: PerformancePeriod!): Performance
+  cashBalance(accountId: ID!): CashBalance
+  borrowBalance(accountId: ID!): BorrowBalance
+  earnBalance(accountId: ID!): EarnBalance
+}
+
+# ─── Mutation ─────────────────────────────────────────────────────────────────
+
+type Mutation {
+  updatePie(pieId: ID!, name: String, description: String, slices: [SliceInput!]): Pie
+  rebalancePortfolio(accountId: ID!): Order
+  initiateTransfer(accountId: ID!, direction: TransferDirection!, amount: Decimal!, bankAccountId: ID!): Transfer
+  cancelTransfer(transferId: ID!): Transfer
+  setAutoInvestThreshold(accountId: ID!, amount: Decimal!): CashBalance
+}
+
+input SliceInput {
+  securityId: ID
+  childPieId: ID
+  targetPercent: Decimal!
+}
