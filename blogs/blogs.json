@@ -1,6 +1,6 @@
 {
   "url": "https://m1.com/blog/",
-  "fetched": "2026-06-13",
+  "fetched": "2026-06-14T20:42:17Z",
   "posts": [
     {
       "title": "What your ETF expense ratio is really costing you",
@@ -62,5 +62,13 @@
       "url": "https://m1.com/blog/m1-beta-testing-approach/",
       "date": "2025-09-25"
     }
-  ]
+  ],
+  "repo": "m1-finance",
+  "feeds": [
+    {
+      "source": "https://www.linkedin.com/company/m1-finance",
+      "error": "HTTPError"
+    }
+  ],
+  "post_count": 0
 }
