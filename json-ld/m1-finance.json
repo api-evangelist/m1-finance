@@ -4,7 +4,7 @@
   "name": "M1 Finance",
   "url": "https://m1.com/",
   "description": "M1 Finance is an automated investing platform offering fractional share portfolio management, smart money movement, margin borrowing, and integrated banking and credit features. The platform combines self-directed and automated investing through its Pies system, commission-free trading, a portfolio line of credit (M1 Borrow), high-yield cash accounts (M1 Earn), and a rewards credit card.",
-  "logo": "https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg",
+  "logo": "https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg",
   "sameAs": [
     "https://github.com/m1finance",
     "https://www.linkedin.com/company/m1-finance",

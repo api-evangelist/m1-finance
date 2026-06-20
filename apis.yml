@@ -10,7 +10,7 @@ description: 'M1 Finance is an automated investing platform offering fractional 
 
   '
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/apis.yml
 created: 2026-06-13
 modified: 2026-06-13
