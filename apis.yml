@@ -101,6 +101,8 @@ apis:
   - type: FinOps
     url: https://raw.githubusercontent.com/api-evangelist/m1-finance/refs/heads/main/finops/m1-finance-finops.yml
 common:
+- type: DomainSecurity
+  url: security/m1-finance-domain-security.yml
 - type: Website
   url: https://m1.com/
 - type: Documentation
