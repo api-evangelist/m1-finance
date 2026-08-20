@@ -31,6 +31,17 @@ tags:
 - Investing
 - Fintech
 - Fractional Shares
+- Portfolio-Management
+- Robo-Advisor
+- Margin Loans
+- Banking
+- Automated Investing
+- Finance Super App
+- Wealth Management
+tags_raw:
+- Investing
+- Fintech
+- Fractional Shares
 - Portfolio Management
 - Robo-Advisor
 - Margin Loans
@@ -50,6 +61,12 @@ apis:
   humanURL: https://m1.com/invest/
   baseURL: https://m1.com/
   tags:
+  - Investing
+  - Fractional Shares
+  - Portfolio-Management
+  - Automated Investing
+  - Rebalancing
+  tags_raw:
   - Investing
   - Fractional Shares
   - Portfolio Management
