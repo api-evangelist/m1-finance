@@ -2,23 +2,21 @@
   "repo": "m1-finance",
   "feeds": [
     {
-      "source": "https://m1.com/blog/feed/",
-      "feed_url": "https://m1.com/blog/feed/",
-      "title": "",
-      "saved": 0,
-      "method": "feed",
-      "nature": "vendor-blog",
-      "nature_basis": "path_blog"
-    },
-    {
       "source": "https://www.linkedin.com/company/m1-finance",
       "feed_url": "https://www.linkedin.com/company/m1-finance",
       "title": "",
       "saved": 0,
       "method": "none"
+    },
+    {
+      "source": "https://m1.com/blog/feed/",
+      "feed_url": "https://m1.com/blog/feed/",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
     }
   ],
-  "fetched": "2026-08-30T22:33:40Z",
+  "fetched": "2026-09-06T19:17:18Z",
   "post_count": 16,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
