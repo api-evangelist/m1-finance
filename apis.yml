@@ -42,7 +42,7 @@ tags:
 - Investing
 - Fintech
 - Fractional Shares
-- Portfolio-Management
+- Portfolio Management
 - Robo-Advisor
 - Margin Loans
 - Banking
@@ -60,6 +60,7 @@ tags_raw:
 - Automated Investing
 - Finance Super App
 - Wealth Management
+- Portfolio-Management
 apis:
 - aid: m1-finance:m1-invest
   name: M1 Invest
@@ -70,11 +71,10 @@ apis:
 
     '
   humanURL: https://m1.com/invest/
-  baseURL: https://m1.com/
   tags:
   - Investing
   - Fractional Shares
-  - Portfolio-Management
+  - Portfolio Management
   - Automated Investing
   - Rebalancing
   tags_raw:
@@ -83,6 +83,7 @@ apis:
   - Portfolio Management
   - Automated Investing
   - Rebalancing
+  - Portfolio-Management
   properties:
   - type: Documentation
     url: https://help.m1.com/en/articles/9332042-getting-started-with-m1-invest-a-quick-guide
@@ -103,7 +104,6 @@ apis:
 
     '
   humanURL: https://m1.com/borrow/
-  baseURL: https://m1.com/
   tags:
   - Margin Loans
   - Borrowing
@@ -127,7 +127,6 @@ apis:
 
     '
   humanURL: https://m1.com/earn/
-  baseURL: https://m1.com/
   tags:
   - Banking
   - High-Yield Savings
