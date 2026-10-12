@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/m1-finance/integrations
+- https://n8n.io/integrations/m1-finance/
+- https://composio.dev/toolkits/m1-finance
+- https://monid.ai/tools/m1-finance
+checked:
+- https://composio.dev/toolkits/m1-finance
+- https://monid.ai/tools/m1-finance
+- https://n8n.io/integrations/m1-finance/
+- https://zapier.com/apps/m1-finance/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
