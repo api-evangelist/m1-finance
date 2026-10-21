@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/m1-finance/integrations
 - https://n8n.io/integrations/m1-finance/
@@ -10,7 +10,47 @@ checked:
 - https://monid.ai/tools/m1-finance
 - https://n8n.io/integrations/m1-finance/
 - https://zapier.com/apps/m1-finance/integrations
+- https://brokercheck.finra.org/
+- https://ilpa.org/about-ilpa/member-directory/
+- https://ilpa.org/industry-guidance/templates-standards-model-documents/ilpa-templates-hub/template-endorsers/
+- https://ilpa.org/members
+- https://ilpa.org/wp-json/wp/v2/organization
+- https://www.cboe.com/market_data_services/vendors/
+- https://www.fixtrading.org/members/
+- https://www.sec.gov/foia/docs/form-adv-archive-data
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: FINRA (broker-dealer registration)
+  partner: null
+  partner_match: register-name
+  type: contract
+  channel: regulator-register
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://brokercheck.finra.org/firm/summary/281242
+  category: Broker-dealer
+  contract_reference:
+    register: FINRA BrokerCheck (api.brokercheck.finra.org firm search, the page's own public JSON)
+    standard: Securities Exchange Act of 1934 broker-dealer registration (FINRA member firm)
+    spec_file: null
+    role: finra-registered-broker-dealer
+    registered_name: M1 FINANCE LLC
+    other_names: null
+    register_id: CRD 281242
+    sec_file_number: 8-69670
+    registration_status: ACTIVE
+    main_office: CHICAGO, IL
+    matched_domain: null
+    matched_by: register-name
+    register_name_note: BrokerCheck firm name 'M1 FINANCE LLC' normalises to m1-finance's apis.yml name 'M1 Finance'
+    signal_note: 'participation only: broker-dealer registration is not a certification; disclosures and branch
+      counts are not recorded (breadth is not credit)'
+    detected_by: sweep-private-markets-fund-admin.py
+    detected: '2026-10-20'
+    identity_source: register-name
+    identity_note: register gave only the name; exact normalised match to the repo's apis.yml name, one repo, Wikidata
+      P856 not contradicting (Kin 2026-10-20 decision 2)
+  detected_by: sweep-private-markets-fund-admin.py
+  first_seen: '2026-10-20'
 templates: []
