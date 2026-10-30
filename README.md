@@ -64,29 +64,113 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-M1 Finance is an automated investing platform offering fractional share portfolio management, smart money movement, margin borrowing, and integrated banking and credit features. The platform combines self-directed and automated investing through its Pies system, commission-free trading, a portfolio line of credit (M1 Borrow), high-yield cash accounts (M1 Earn), and a rewards credit card.
+M1 Finance is an automated investing platform offering fractional share portfolio management, smart money movement, margin borrowing, and integrated banking and credit features. The platform combines self-directed and automated investing through its Pies system, commission-free trading, a portfolio line of credit (M1 Borrow), high-yield cash accounts (M1 Earn), and a rewards credit card. M1 uses a GraphQL API gateway internally across 17+ microservices built on Scala and TypeScript to power its Finance Super App experience.
 
-- **Website:** https://m1.com/
-- **Documentation:** https://help.m1.com/
-- **Blog:** https://m1.com/blog/
-- **Status:** https://status.m1.com/
-- **GitHub:** https://github.com/m1finance
-- **LinkedIn:** https://www.linkedin.com/company/m1-finance
-- **X:** https://x.com/m1finance
+**Areas:** Investing · Fintech · Fractional Shares · Portfolio Management · Robo-Advisor · Margin Loans · Banking · Automated Investing · Finance Super App · Wealth Management
 
-## APIs Cataloged
+## M1 Finance on APIs.io
 
-- **M1 Invest** - Automated fractional share portfolio management with Pies, dynamic rebalancing, and commission-free trading.
-- **M1 Borrow** - Portfolio line of credit providing margin loans up to 50% of eligible portfolio value at 5.65% variable rate.
-- **M1 Earn** - High-yield cash accounts at 3.10% APY with FDIC insurance up to $4.75M aggregate.
+Everything profiled for M1 Finance is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/m1-finance/](https://apis.io/providers/m1-finance/)** — or go straight to one of the APIs or properties below.
 
-## Repository Contents
+### APIs (3)
 
-- `apis.yml` - APIs.json 0.19 provider profile
-- `plans/m1-finance-plans-pricing.yml` - Pricing and plan details
-- `rate-limits/m1-finance-rate-limits.yml` - Operational rate limits and platform constraints
-- `finops/m1-finance-finops.yml` - Financial operations and cost management details
+- [M1 Invest](https://apis.io/apis/m1-finance/m1-invest/) — M1 Invest provides automated fractional share portfolio management using the Pies system, allowing users to set target allocations across stocks and ETFs…
+- [M1 Borrow](https://apis.io/apis/m1-finance/m1-borrow/) — M1 Borrow provides a portfolio line of credit (margin loans) allowing users to borrow up to 50% of their eligible brokerage portfolio value at a competitive…
+- [M1 Earn](https://apis.io/apis/m1-finance/m1-earn/) — M1 Earn offers high-yield cash accounts for individuals and joint account holders with 3.10% APY and FDIC insurance coverage up to $4.75 million aggregate…
 
-## Maintained By
+### Published properties
 
-Kin Lane (kin@apievangelist.com) / [API Evangelist](https://apievangelist.com)
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### GraphQL (1)
+
+GraphQL schemas.
+
+- [M1 Finance GraphQL API](https://apis.io/graphqls/m1-finance/m1-finance-graphql/)
+
+#### Security (1)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [M1 Finance Domain Security](https://apis.io/security/m1-finance/m1-finance-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [M1 Finance Plans Pricing](https://apis.io/plans/m1-finance/m1-finance-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [M1 Finance Rate Limits](https://apis.io/rate-limits/m1-finance/m1-finance-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [M1 Finance Finops](https://apis.io/finops/m1-finance/m1-finance-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://m1.com/)
+- [Documentation](https://help.m1.com/)
+- [Pricing](https://m1.com/)
+- [Blog](https://m1.com/blog/)
+- [Status](https://status.m1.com/)
+
+## API Evangelist rating
+
+**Kin Score 21.0** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 35.1 |
+| Contract governance | 0.0 |
+| Operational transparency | 21.1 |
+| Developer ergonomics | 11.9 |
+| Access clarity | 15.8 |
+
+**Agent readiness 15.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 4.7** — Banking & Open Finance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/m1-finance/](https://apis.io/providers/m1-finance/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for M1 Finance: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/m1-finance/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
